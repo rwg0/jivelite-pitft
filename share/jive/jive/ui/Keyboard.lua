@@ -67,8 +67,8 @@ local keyboardButtonText = {
 }
 
 local default = {
-	width = 46,
-	height = 44,
+	width = 30,
+	height = 34,
 }
 
 --[[
@@ -321,7 +321,7 @@ function _layout(self)
 	local screenWidth, screenHeight = Framework:getScreenSize()
 
 	local keyWidth
-	local rowWidth = 460
+	local rowWidth = 300
 
 	-- self.keyboard has the keyboard, table of rows of key objects
 	-- self.rowInfo has metadata about the keyboard, e.g., keyWidth or spacer
