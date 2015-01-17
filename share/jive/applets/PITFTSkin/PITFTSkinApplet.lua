@@ -2891,7 +2891,7 @@ function skin(self, s)
 		--transport controls
 		npcontrols = {
 			order = { 'rew', 'div1', 'play', 'div2', 'fwd', 'div3', 'repeatMode', 'div4', 'shuffleMode', 
-					'div5', 'volDown', 'div6', 'volSlider', 'div7', 'volUp' },
+					'div5', 'volSlider' },
 			position = LAYOUT_SOUTH,
 			h = controlHeight,
 			w = WH_FILL,
@@ -2902,8 +2902,6 @@ function skin(self, s)
 			div3 = _uses(_transportControlBorder),
 			div4 = _uses(_transportControlBorder),
 			div5 = _uses(_transportControlBorder),
-			div6 = _uses(_transportControlBorder),
-			div7 = _uses(_transportControlBorder),
 
 			rew   = _uses(_transportControlButton, {
 				img = _loadImage(self, "Icons/icon_toolbar_rew.png"),
@@ -2940,14 +2938,6 @@ function skin(self, s)
 			}),
 			repeatSong = _uses(_transportControlButton, {
 				img = _loadImage(self, "Icons/icon_toolbar_repeat_song_on.png"),
-			}),
-			volDown   = _uses(_transportControlButton, {
-				w = 34,
-				img = _loadImage(self, "Icons/icon_toolbar_vol_down.png"),
-			}),
-			volUp   = _uses(_transportControlButton, {
-				w = 34,
-				img = _loadImage(self, "Icons/icon_toolbar_vol_up.png"),
 			}),
 			thumbsUp   = _uses(_transportControlButton, {
 				img = _loadImage(self, "Icons/icon_toolbar_thumbup.png"),
