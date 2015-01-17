@@ -5,7 +5,7 @@ applets.PITFTSkin.PITFTSkinApplet
 
 =head1 DESCRIPTION
 
-This applet implements a small print skin for 480x272 resolution
+This applet implements a small print skin for 320x240 resolution
 
 =head1 FUNCTIONS
 
@@ -100,29 +100,29 @@ function param(self)
 			-- every skin needs to start off with a nowplaying style
 			{
 				style = 'nowplaying', 
-				artworkSize = '180x180',
+				artworkSize = '110x110',
 				text = self:string("ART_AND_TEXT"),
 			},
 			{
 				style = 'nowplaying_art_only',
-				artworkSize = '470x262',
+				artworkSize = '320x240',
 				suppressTitlebar = 1,
 				text = self:string("ART_ONLY"),
 			},
 			{
 				style = 'nowplaying_text_only',
-				artworkSize = '180x180',
+				artworkSize = '110x110',
 				text = self:string("TEXT_ONLY"),
 			},
 			{
 				style = 'nowplaying_spectrum_text',
-				artworkSize = '180x180',
+				artworkSize = '110x110',
 				localPlayerOnly = 1,
 				text = self:string("SPECTRUM_ANALYZER"),
 			},
 			{
 				style = 'nowplaying_vuanalog_text',
-				artworkSize = '180x180',
+				artworkSize = '110x110',
 				localPlayerOnly = 1,
 				text = self:string("ANALOG_VU_METER"),
 			},
@@ -2015,11 +2015,11 @@ function skin(self, s)
 		},
 
 		menu = {
-			h = CM_MENU_HEIGHT * 4,
+			h = CM_MENU_HEIGHT * 3,
 			border = { 7, 0, 7, 0 },
 			padding = { 0, 0, 0, 100 },
 			scrollbar = { 
-				h = CM_MENU_HEIGHT * 4,
+				h = CM_MENU_HEIGHT * 3,
 			},
 			item = {
 				h = CM_MENU_HEIGHT,
@@ -2760,12 +2760,12 @@ function skin(self, s)
 
 	-- BEGIN NowPlaying skin code
 
-	local NP_ARTISTALBUM_FONT_SIZE = 20
-	local NP_TRACK_FONT_SIZE = 24
+	local NP_ARTISTALBUM_FONT_SIZE = 16
+	local NP_TRACK_FONT_SIZE = 18
 
-	local controlHeight = 38
-	local controlWidth = 45
-	local volumeBarWidth = 163 -- screenWidth - (transport controls + volume controls + dividers + border around volume bar)
+	local controlHeight = 32
+	local controlWidth = 40
+	local volumeBarWidth = 110 -- screenWidth - (transport controls + volume controls + dividers + border around volume bar)
 	local buttonPadding = 0
 
 	local _transportControlButton = {
@@ -2792,7 +2792,7 @@ function skin(self, s)
 		align = "left",
 		lineHeight = NP_TRACK_FONT_SIZE,
 		fg = TEXT_COLOR,
-		x = 198,
+		x = 125,
 	}
 
 	s.nowplaying = _uses(s.window, {
@@ -2819,7 +2819,7 @@ function skin(self, s)
 			position   = _tracklayout.position,
 			border     = _tracklayout.border,
 			x          = _tracklayout.x,
-			y          = TITLE_HEIGHT + 32,
+			y          = TITLE_HEIGHT+12,
 			h          = 32,
 			nptrack =  {
 				w          = screenWidth - _tracklayout.x - 10,
@@ -2836,7 +2836,7 @@ function skin(self, s)
 			position   = _tracklayout.position,
 			border     = _tracklayout.border,
 			x          = _tracklayout.x,
-			y          = TITLE_HEIGHT + 32 + 32,
+			y          = TITLE_HEIGHT + 12 + 32,
 			h          = 32,
 			npartist = {
 				padding    = { 0, 6, 0, 0 },
@@ -2853,7 +2853,7 @@ function skin(self, s)
 			position   = _tracklayout.position,
 			border     = _tracklayout.border,
 			x          = _tracklayout.x,
-			y          = TITLE_HEIGHT + 32 + 32 + 32,
+			y          = TITLE_HEIGHT + 12 + 32 + 32,
 			h          = 32,
 			npalbum = {
 				w          = screenWidth - _tracklayout.x - 10,
@@ -2871,15 +2871,15 @@ function skin(self, s)
 	
 		-- cover art
 		npartwork = {
-			w = 180,
+			w = 110,
 			position = LAYOUT_NONE,
 			x = 8,
 			y = TITLE_HEIGHT + 4,
 			align = "center",
-			h = 180,
+			h = 110,
 
 			artwork = {
-				w = 180,
+				w = 110,
 				align = "center",
 				padding = 0,
 				img = false,
@@ -2984,8 +2984,8 @@ function skin(self, s)
 		-- Progress bar
 		npprogress = {
 			position = LAYOUT_NONE,
-			x = 202,
-			y = TITLE_HEIGHT + 29 + 26 + 32 + 32 + 23,
+			x = 20,
+			y = TITLE_HEIGHT + 25 + 12 + 32 + 32 + 23,
 			padding = { 0, 10, 0, 0 },
 			order = { "elapsed", "slider", "remain" },
 			elapsed = {
@@ -3035,8 +3035,8 @@ function skin(self, s)
 		npprogressNB = {
 			order = { "elapsed" },
 			position = LAYOUT_NONE,
-			x = 202,
-			y = TITLE_HEIGHT + 29 + 26 + 32 + 32 + 23,
+			x = 20,
+			y = TITLE_HEIGHT + 25 + 12 + 32 + 32 + 23,
 			elapsed = {
 				w = WH_FILL,
 				align = "left",
@@ -3128,14 +3128,14 @@ function skin(self, s)
 		npartistgroup    = { hidden = 1 },
 		npalbumgroup     = { hidden = 1 },
 		npartwork = {
-			w = 480,
+			w = 320,
 			position = LAYOUT_CENTER,
 			align = "center",
-			h = 272,
+			h = 240,
 			border = 0,
 			padding = 5,
 			artwork = {
-				w = 480,
+				w = 320,
 				border = 0,
 				padding = 0,
 				img = false,
@@ -3172,7 +3172,7 @@ function skin(self, s)
 
 		npprogress = {
 			x = 10,
-			y = 200,
+			y = 170,
 			w = screenWidth - 20,
 			elapsed = {
 				w = 50,
@@ -3306,8 +3306,8 @@ function skin(self, s)
 			position = LAYOUT_NONE,
 			x = 0,
 			y = 2 * TITLE_HEIGHT + 4,
-			w = 480,
-			h = 272 - (2 * TITLE_HEIGHT + 4 + 45),
+			w = 320,
+			h = 240 - (2 * TITLE_HEIGHT + 4 + 45),
 			border = { 0, 0, 0, 0 },
 			padding = { 0, 0, 0, 0 },
 
@@ -3315,8 +3315,8 @@ function skin(self, s)
 				position = LAYOUT_NONE,
 				x = 0,
 				y = 2 * TITLE_HEIGHT + 4,
-				w = 480,
-				h = 272 - (2 * TITLE_HEIGHT + 4 + 45),
+				w = 320,
+				h = 240 - (2 * TITLE_HEIGHT + 4 + 45),
 				border = { 0, 0, 0, 0 },
 				padding = { 0, 0, 0, 0 },
 
@@ -3354,8 +3354,8 @@ function skin(self, s)
 			position = LAYOUT_NONE,
 			x = 0,
 			y = TITLE_HEIGHT + 38,
-			w = 480,
-			h = 272 - (TITLE_HEIGHT + 38 + 38),
+			w = 320,
+			h = 240 - (TITLE_HEIGHT + 38 + 38),
 			border = { 0, 0, 0, 0 },
 			padding = { 0, 0, 0, 0 },
 
@@ -3363,8 +3363,8 @@ function skin(self, s)
 				position = LAYOUT_NONE,
 				x = 0,
 				y = TITLE_HEIGHT + 38,
-				w = 480,
-				h = 272 - (TITLE_HEIGHT + 38 + 38),
+				w = 320,
+				h = 240 - (TITLE_HEIGHT + 38 + 38),
 				border = { 0, 0, 0, 0 },
 				padding = { 0, 0, 0, 0 },
 				bgImg = _loadImage(self, "UNOFFICIAL/VUMeter/vu_analog_25seq_b.png"),
